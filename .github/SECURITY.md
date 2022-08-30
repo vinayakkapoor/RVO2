@@ -1,4 +1,5 @@
 <!--
+SECURITY.md
 RVO2 Library
 
 SPDX-FileCopyrightText: 2008 University of North Carolina at Chapel Hill
@@ -54,38 +55,24 @@ United States of America
 <https://gamma.cs.unc.edu/RVO2/>
 -->
 
-<!-- HTML header for doxygen 1.8.13 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen $doxygenversion"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>$projectname: $title</title>
-<link href="$relpath^tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="$relpath^jquery.js"></script>
-<script type="text/javascript" src="$relpath^dynsections.js"></script>
-<link href="$relpath^$stylesheet" rel="stylesheet" type="text/css" />
-$extrastylesheet
-</head>
-<body>
-<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+# Security Policy
 
-<!--BEGIN TITLEAREA-->
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">$projectname
-   &#160;<span id="projectnumber">$projectnumber</span>
-   </div>
-   <div id="projectbrief">$projectbrief</div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-<!--END TITLEAREA-->
-<!-- end header part -->
+## Supported Versions
+
+The current release will be supported with security updates when practical.
+
+## Reporting a Vulnerability
+
+Please send all vulnerability reports to
+[geom@cs.unc.edu](mailto:geom@cs.unc.edu).
+
+The authors may be contacted via:
+
+Jur van den Berg, Stephen J. Guy, Jamie Snape, Ming C. Lin, Dinesh Manocha  
+Dept. of Computer Science  
+201 S. Columbia St.  
+Frederick P. Brooks, Jr. Computer Science Bldg.  
+Chapel Hill, N.C. 27599-3175  
+United States of America
+
+<https://gamma.cs.unc.edu/RVO2/>

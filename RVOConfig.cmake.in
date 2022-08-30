@@ -1,8 +1,8 @@
-# -*- mode: editorconfig; -*-
-# vi: set ft=editorconfig:
+# -*- mode: cmake; -*-
+# vi: set ft=cmake:
 
 #
-# .editorconfig
+# RVOConfig.cmake
 # RVO2 Library
 #
 # SPDX-FileCopyrightText: 2008 University of North Carolina at Chapel Hill
@@ -34,34 +34,18 @@
 # <https://gamma.cs.unc.edu/RVO2/>
 #
 
-root = true
+@PACKAGE_INIT@
 
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-max_line_length = 80
-trim_trailing_whitespace = true
+set(RVO_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(RVO_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(RVO_VERSION_PATCH @PROJECT_VERSION_PATCH@)
 
-[*.bazel]
-indent_size = 4
+set(RVO_VERSION @PROJECT_VERSION@)
 
-[*.cpp]
-indent_style = tab
+set_and_check(RVO_INCLUDE_DIRS "@PACKAGE_RVO_INCLUDE_DIR@")
+set_and_check(RVO_LIBRARY_DIRS "@PACKAGE_RVO_LIBRARY_DIR@")
+set(RVO_LIBRARIES @PROJECT_NAME@::@RVO_LIBRARY@)
 
-[*.h]
-indent_style = tab
+check_required_components(@PROJECT_NAME@)
 
-[*.md]
-trim_trailing_whitespace = false
-
-[.bazelignore]
-indent_size = 4
-
-[.bazelrc]
-indent_size = 4
-
-[Brewfile]
-indent_size = 4
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")

@@ -1,8 +1,5 @@
-# -*- mode: editorconfig; -*-
-# vi: set ft=editorconfig:
-
 #
-# .editorconfig
+# codeql.yml
 # RVO2 Library
 #
 # SPDX-FileCopyrightText: 2008 University of North Carolina at Chapel Hill
@@ -34,34 +31,31 @@
 # <https://gamma.cs.unc.edu/RVO2/>
 #
 
-root = true
+---
+name: codeql
 
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-max_line_length = 80
-trim_trailing_whitespace = true
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 6 * * 3'
 
-[*.bazel]
-indent_size = 4
-
-[*.cpp]
-indent_style = tab
-
-[*.h]
-indent_style = tab
-
-[*.md]
-trim_trailing_whitespace = false
-
-[.bazelignore]
-indent_size = 4
-
-[.bazelrc]
-indent_size = 4
-
-[Brewfile]
-indent_size = 4
+jobs:
+  analyze:
+    name: analyze
+    runs-on: ubuntu-22.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: initialize codeql
+      uses: github/codeql-action/init@v2
+      with:
+        languages: cpp
+    - name: autobuild
+      uses: github/codeql-action/autobuild@v2
+    - name: perform codeql analysis
+      uses: github/codeql-action/analyze@v2

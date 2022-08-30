@@ -1,8 +1,8 @@
-# -*- mode: editorconfig; -*-
-# vi: set ft=editorconfig:
+# -*- mode: ruby; -*-
+# vi: set ft=ruby:
 
 #
-# .editorconfig
+# Brewfile
 # RVO2 Library
 #
 # SPDX-FileCopyrightText: 2008 University of North Carolina at Chapel Hill
@@ -34,34 +34,19 @@
 # <https://gamma.cs.unc.edu/RVO2/>
 #
 
-root = true
-
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-max_line_length = 80
-trim_trailing_whitespace = true
-
-[*.bazel]
-indent_size = 4
-
-[*.cpp]
-indent_style = tab
-
-[*.h]
-indent_style = tab
-
-[*.md]
-trim_trailing_whitespace = false
-
-[.bazelignore]
-indent_size = 4
-
-[.bazelrc]
-indent_size = 4
-
-[Brewfile]
-indent_size = 4
+brew 'bazel', conflicts_with: ['bazelisk']
+brew 'buildifier'
+brew 'cmake'
+brew 'cppcheck'
+brew 'cpplint'
+brew 'doxygen'
+brew 'gcc'
+brew 'graphviz'
+brew 'include-what-you-use'
+brew 'jsonlint'
+brew 'llvm'
+brew 'markdownlint-cli'
+brew 'ninja'
+brew 'pkgconf', conflicts_with: ['pkg-config']
+brew 'python'
+brew 'yamllint'

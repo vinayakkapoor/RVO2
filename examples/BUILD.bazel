@@ -1,8 +1,8 @@
-# -*- mode: editorconfig; -*-
-# vi: set ft=editorconfig:
+# -*- mode: bazel; -*-
+# vi: set ft=bazel:
 
 #
-# .editorconfig
+# examples/BUILD.bazel
 # RVO2 Library
 #
 # SPDX-FileCopyrightText: 2008 University of North Carolina at Chapel Hill
@@ -34,34 +34,45 @@
 # <https://gamma.cs.unc.edu/RVO2/>
 #
 
-root = true
+load("@rules_cc//cc:defs.bzl", "cc_test")
 
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-max_line_length = 80
-trim_trailing_whitespace = true
+licenses(["notice"])
 
-[*.bazel]
-indent_size = 4
+cc_test(
+    name = "Blocks",
+    size = "medium",
+    timeout = "short",
+    srcs = ["Blocks.cpp"],
+    defines = [
+        "RVO_OUTPUT_TIME_AND_POSITIONS=0",
+        "RVO_SEED_RANDOM_NUMBER_GENERATOR=0",
+    ],
+    visibility = ["//visibility:public"],
+    deps = ["//src:RVO"],
+)
 
-[*.cpp]
-indent_style = tab
+cc_test(
+    name = "Circle",
+    size = "medium",
+    timeout = "short",
+    srcs = ["Circle.cpp"],
+    defines = [
+        "RVO_OUTPUT_TIME_AND_POSITIONS=0",
+        "RVO_SEED_RANDOM_NUMBER_GENERATOR=0",
+    ],
+    visibility = ["//visibility:public"],
+    deps = ["//src:RVO"],
+)
 
-[*.h]
-indent_style = tab
-
-[*.md]
-trim_trailing_whitespace = false
-
-[.bazelignore]
-indent_size = 4
-
-[.bazelrc]
-indent_size = 4
-
-[Brewfile]
-indent_size = 4
+cc_test(
+    name = "Roadmap",
+    size = "medium",
+    timeout = "short",
+    srcs = ["Roadmap.cpp"],
+    defines = [
+        "RVO_OUTPUT_TIME_AND_POSITIONS=0",
+        "RVO_SEED_RANDOM_NUMBER_GENERATOR=0",
+    ],
+    visibility = ["//visibility:public"],
+    deps = ["//src:RVO"],
+)

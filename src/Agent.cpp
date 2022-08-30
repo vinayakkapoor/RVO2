@@ -2,13 +2,14 @@
  * Agent.cpp
  * RVO2 Library
  *
- * Copyright 2008 University of North Carolina at Chapel Hill
+ * SPDX-FileCopyrightText: 2008 University of North Carolina at Chapel Hill
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,7 +28,7 @@
  * Chapel Hill, N.C. 27599-3175
  * United States of America
  *
- * <http://gamma.cs.unc.edu/RVO2/>
+ * <https://gamma.cs.unc.edu/RVO2/>
  */
 
 #include "Agent.h"
@@ -119,7 +120,7 @@ namespace RVO {
 
 				continue;
 			}
-			else if (s >= 0.0f && s < 1.0f && distSqLine <= radiusSq) {
+			else if (s >= 0.0f && s <= 1.0f && distSqLine <= radiusSq) {
 				/* Collision with obstacle segment. */
 				line.point = Vector2(0.0f, 0.0f);
 				line.direction = -obstacle1->unitDir_;
