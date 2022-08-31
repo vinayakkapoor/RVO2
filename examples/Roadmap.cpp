@@ -2,14 +2,13 @@
  * Roadmap.cpp
  * RVO2 Library
  *
- * SPDX-FileCopyrightText: 2008 University of North Carolina at Chapel Hill
- * SPDX-License-Identifier: Apache-2.0
+ * Copyright 2008 University of North Carolina at Chapel Hill
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +27,7 @@
  * Chapel Hill, N.C. 27599-3175
  * United States of America
  *
- * <https://gamma.cs.unc.edu/RVO2/>
+ * <http://gamma.cs.unc.edu/RVO2/>
  */
 
 /*
@@ -71,6 +70,8 @@
 const float M_PI = 3.14159265358979323846f;
 #endif
 
+int fileNo = 0;
+
 class RoadmapVertex
 {
 public:
@@ -88,13 +89,13 @@ std::vector<int> goals;
 void setupScenario(RVO::RVOSimulator *sim)
 {
 #if RVO_SEED_RANDOM_NUMBER_GENERATOR
-	std::srand(static_cast<unsigned int>(std::time(NULL)));
+	std::srand(static_cast<unsigned int>(std::time(NULL) + fileNo));
 #endif
 
 	using namespace std;
 	ofstream trajFile;
 	//trajFile.open("./../../CADRL/data/multi_sim/trajectoryData_v1.txt", std::ios_base::app);
-	trajFile.open("./trajectoryData_v1.txt", std::ios_base::app);
+	trajFile.open("./trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
 
 	/* Specify the global time step of the simulation. */
 	sim->setTimeStep(0.25f);
@@ -103,10 +104,10 @@ void setupScenario(RVO::RVOSimulator *sim)
 	RoadmapVertex v;
 
 	/* Add the goal positions of agents. */
-	float xg_1 = 2.0f;
-	float yg_1 = -1.5f;
-	float xg_2 = 2.0f;
-	float yg_2 = 1.5f;
+	float xg_1 = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f; //random no between 1 and 3
+	float yg_1 = -1.0f*((static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f); //random no between -3 and -1
+	float xg_2 = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f; //random no between 1 and 3
+	float yg_2 = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f; //random no between 1 and 3
 	v.position = RVO::Vector2(xg_1, yg_1);
 	roadmap.push_back(v);
 	v.position = RVO::Vector2(xg_2, yg_2);
@@ -139,10 +140,16 @@ void setupScenario(RVO::RVOSimulator *sim)
 		}
 	}*/
 
-	sim->addAgent(RVO::Vector2(-2.0f, 1.5f));
+	//define starting position of the agents
+	float xs_1 = -1.0f*((static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f); //random no between -3 and -1
+	float ys_1 = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f; //random no between 1 and 3
+	float xs_2 = -1.0f*((static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f); //random no between -3 and -1
+	float ys_2 = -1.0f*((static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*2.0f + 1.0f); //random no between -3 and -1
+
+	sim->addAgent(RVO::Vector2(xs_1, ys_1));
 	goals.push_back(0);
 
-	sim->addAgent(RVO::Vector2(-2.0f, -1.5f));
+	sim->addAgent(RVO::Vector2(xs_2, ys_2));
 	goals.push_back(1);
 
 	/*
@@ -162,13 +169,15 @@ void setupScenario(RVO::RVOSimulator *sim)
 #if RVO_OUTPUT_TIME_AND_POSITIONS
 void updateVisualization(RVO::RVOSimulator *sim)
 {
+	//std::cout << "File no: " << fileNo << std::endl;
 	using namespace std;
+	srand(static_cast<unsigned int>(std::time(nullptr)));
 	ofstream trajFile;
 	//trajFile.open("./../../CADRL/data/multi_sim/trajectoryData_v1.txt", std::ios_base::app);
-	trajFile.open("./trajectoryData_v1.txt", std::ios_base::app);
+	trajFile.open("./trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
 
 	/* Output the current global time. */
-	std::cout << sim->getGlobalTime();
+	//std::cout << sim->getGlobalTime();
 	trajFile << sim->getGlobalTime() << " ";
 
 	/* Output the current position of all the agents. */
@@ -184,7 +193,7 @@ void updateVisualization(RVO::RVOSimulator *sim)
 		//trajFile << sim->getAgentPosition(i).y() << " ";
 	}*/
 
-	std::cout << std::endl;
+	//std::cout << std::endl;
 	trajFile << "\n";
 	trajFile.close();
 }
@@ -325,7 +334,7 @@ bool reachedGoal(RVO::RVOSimulator *sim)
 	/* Check if all agents have reached their goals. */
 	for (size_t i = 0; i < sim->getNumAgents(); ++i)
 	{
-		if (RVO::absSq(sim->getAgentPosition(i) - roadmap[goals[i]].position) > 0.5f * 0.5f)
+		if (RVO::absSq(sim->getAgentPosition(i) - roadmap[goals[i]].position) > 0.25f * 0.25f)
 		{
 			return false;
 		}
@@ -334,8 +343,13 @@ bool reachedGoal(RVO::RVOSimulator *sim)
 	return true;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	fileNo = atoi(argv[1]);
+	
+	/*for(int i = 0; i<argc;i++){
+		fileNo = fileNo*10 + (int)argv[i];
+	}*/
 	/* Create a new simulator instance. */
 	RVO::RVOSimulator *sim = new RVO::RVOSimulator();
 
@@ -359,4 +373,5 @@ int main()
 
 	return 0;
 }
+
 
