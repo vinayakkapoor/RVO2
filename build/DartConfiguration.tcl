@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/vinayak/thesis/RVO2
-BuildDirectory: /home/vinayak/thesis/RVO2/build
+SourceDirectory: /home/mrs/Desktop/Vinayak/RVO2
+BuildDirectory: /home/mrs/Desktop/Vinayak/RVO2/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: vinayak
+Site: gigabedna-focal
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -20,23 +20,13 @@ BuildName: Linux-c++
 LabelsForSubprojects: 
 
 # Submission information
-IsCDash: ON
-CDashVersion: 
-QueryCDashVersion: 
-DropSite: my.cdash.org
-DropLocation: /submit.php?project=RVO2
-DropSiteUser: 
-DropSitePassword: 
-DropSiteMode: 
-DropMethod: https
-TriggerSite: 
-ScpCommand: /usr/bin/scp
+SubmitURL: https://my.cdash.org/submit.php?project=RVO2
 
 # Dashboard start time
 NightlyStartTime: 01:00:00 UTC
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/vinayak/thesis/RVO2"
+ConfigureCommand: "/usr/bin/cmake" "/home/mrs/Desktop/Vinayak/RVO2"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -72,8 +62,8 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: /usr/lib/ccache/c++
-CompilerVersion: 7.5.0
+Compiler: /usr/bin/c++
+CompilerVersion: 9.4.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

@@ -116,7 +116,7 @@ void setupScenario(RVO::RVOSimulator *sim)
 	v.position = RVO::Vector2(xg_2, yg_2);
 	roadmap.push_back(v);
 
-	float radius = 0.3f;
+	float radius = 0.75f;
 	float maxVel = 1.0f;
 
 	
@@ -124,7 +124,7 @@ void setupScenario(RVO::RVOSimulator *sim)
 	trajFile << xg_2 << " " << yg_2 << " " << radius << " " << maxVel << "\n";
 	trajFile.close();
 
-	sim->setAgentDefaults(5.0f, 0, 1.0f, 1.0f, radius, maxVel);
+	sim->setAgentDefaults(5.0f, 2, 1.0f, 1.0f, radius, maxVel);
 	/* form of setAgentDefualts(), inspect the function for detailed information about the paramters:
 	void setAgentDefaults(float neighborDist, size_t maxNeighbors,
 							  float timeHorizon, float timeHorizonObst,
@@ -148,7 +148,7 @@ void setupScenario(RVO::RVOSimulator *sim)
 void updateVisualization(RVO::RVOSimulator *sim)
 {	
 	using namespace std;
-	srand(static_cast<unsigned int>(std::time(nullptr)));
+	//srand(static_cast<unsigned int>(std::time(nullptr)));
 	
 	ofstream trajFile;	
 	trajFile.open("./trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);

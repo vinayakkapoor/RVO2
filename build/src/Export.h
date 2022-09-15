@@ -39,4 +39,4 @@
 #  endif
 #endif
 
-#endif
+#endif /* RVO_EXPORT_H */

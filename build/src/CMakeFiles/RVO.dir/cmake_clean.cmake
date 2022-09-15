@@ -4,9 +4,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/RVO.dir/Obstacle.cpp.o"
   "CMakeFiles/RVO.dir/RVOSimulator.cpp.o"
   "libRVO.pdb"
-  "libRVO.so.2.0.3"
   "libRVO.so"
   "libRVO.so.2"
+  "libRVO.so.2.0.3"
 )
 
 # Per-language clean rules from dependency scanning.

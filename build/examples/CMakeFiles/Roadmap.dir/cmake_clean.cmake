@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Roadmap.dir/Roadmap.cpp.o"
-  "Roadmap.pdb"
   "Roadmap"
+  "Roadmap.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

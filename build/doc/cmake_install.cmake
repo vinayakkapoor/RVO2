@@ -1,4 +1,4 @@
-# Install script for directory: /home/vinayak/thesis/RVO2/doc
+# Install script for directory: /home/mrs/Desktop/Vinayak/RVO2/doc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

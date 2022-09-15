@@ -45,13 +45,13 @@ unset(_expectedTargets)
 add_library(RVO::RVO SHARED IMPORTED)
 
 set_target_properties(RVO::RVO PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/vinayak/thesis/RVO2/build/src;/home/vinayak/thesis/RVO2/src"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/mrs/Desktop/Vinayak/RVO2/build/src;/home/mrs/Desktop/Vinayak/RVO2/src"
 )
 
 # Import target "RVO::RVO" for configuration "Release"
 set_property(TARGET RVO::RVO APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(RVO::RVO PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/vinayak/thesis/RVO2/build/src/libRVO.so.2.0.3"
+  IMPORTED_LOCATION_RELEASE "/home/mrs/Desktop/Vinayak/RVO2/build/src/libRVO.so.2.0.3"
   IMPORTED_SONAME_RELEASE "libRVO.so.2"
   )
 
