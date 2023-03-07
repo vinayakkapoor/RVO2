@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall -Wformat-security -Werror=format-security -Wno-unused -O3 -DN
 
 CXX_DEFINES = -DRVO_OUTPUT_TIME_AND_POSITIONS=1 -DRVO_SEED_RANDOM_NUMBER_GENERATOR=1
 
-CXX_INCLUDES = -I/home/mrs/Desktop/Vinayak/RVO2/build/src -I/home/mrs/Desktop/Vinayak/RVO2/src 
+CXX_INCLUDES = -I/home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build/src -I/home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/src 
 

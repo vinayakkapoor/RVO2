@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/mrs/Desktop/Vinayak/RVO2
-BuildDirectory: /home/mrs/Desktop/Vinayak/RVO2/build
+SourceDirectory: /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2
+BuildDirectory: /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: gigabedna-focal
+Site: takeoff
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -26,7 +26,7 @@ SubmitURL: https://my.cdash.org/submit.php?project=RVO2
 NightlyStartTime: 01:00:00 UTC
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/mrs/Desktop/Vinayak/RVO2"
+ConfigureCommand: "/usr/bin/cmake" "/home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

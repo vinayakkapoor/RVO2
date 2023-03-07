@@ -94,7 +94,7 @@ void setupScenario(RVO::RVOSimulator *sim)
 
 	using namespace std;
 	ofstream trajFile;
-	trajFile.open("./trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
+	trajFile.open("./Generated Trajectories/trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
 
 	/* Specify the global time step of the simulation. */
 	sim->setTimeStep(0.25f);
@@ -125,7 +125,7 @@ void setupScenario(RVO::RVOSimulator *sim)
 	trajFile.close();
 
 	sim->setAgentDefaults(5.0f, 2, 1.0f, 1.0f, radius, maxVel);
-	/* form of setAgentDefualts(), inspect the function for detailed information about the paramters:
+	/* form of setAgentDefualts() (inspect the function for detailed information about the paramters) :
 	void setAgentDefaults(float neighborDist, size_t maxNeighbors,
 							  float timeHorizon, float timeHorizonObst,
 							  float radius, float maxSpeed,
