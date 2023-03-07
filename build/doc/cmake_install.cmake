@@ -1,4 +1,4 @@
-# Install script for directory: /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/doc
+# Install script for directory: /home/vinayak/draca/RVO2/doc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

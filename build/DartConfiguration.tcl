@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2
-BuildDirectory: /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build
+SourceDirectory: /home/vinayak/draca/RVO2
+BuildDirectory: /home/vinayak/draca/RVO2/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: https://my.cdash.org/submit.php?project=RVO2
 NightlyStartTime: 01:00:00 UTC
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2"
+ConfigureCommand: "/usr/bin/cmake" "/home/vinayak/draca/RVO2"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

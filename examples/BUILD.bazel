@@ -38,31 +38,6 @@ load("@rules_cc//cc:defs.bzl", "cc_test")
 
 licenses(["notice"])
 
-cc_test(
-    name = "Blocks",
-    size = "medium",
-    timeout = "short",
-    srcs = ["Blocks.cpp"],
-    defines = [
-        "RVO_OUTPUT_TIME_AND_POSITIONS=0",
-        "RVO_SEED_RANDOM_NUMBER_GENERATOR=0",
-    ],
-    visibility = ["//visibility:public"],
-    deps = ["//src:RVO"],
-)
-
-cc_test(
-    name = "Circle",
-    size = "medium",
-    timeout = "short",
-    srcs = ["Circle.cpp"],
-    defines = [
-        "RVO_OUTPUT_TIME_AND_POSITIONS=0",
-        "RVO_SEED_RANDOM_NUMBER_GENERATOR=0",
-    ],
-    visibility = ["//visibility:public"],
-    deps = ["//src:RVO"],
-)
 
 cc_test(
     name = "Roadmap",

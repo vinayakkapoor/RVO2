@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2
+CMAKE_SOURCE_DIR = /home/vinayak/draca/RVO2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build
+CMAKE_BINARY_DIR = /home/vinayak/draca/RVO2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -115,7 +115,7 @@ test/fast: test
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/vinayak/draca/RVO2/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -159,9 +159,9 @@ package/fast: package
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build/CMakeFiles /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vinayak/draca/RVO2/build/CMakeFiles /home/vinayak/draca/RVO2/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vinayak/draca/RVO2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -579,32 +579,6 @@ Roadmap/fast:
 	$(MAKE) -f examples/CMakeFiles/Roadmap.dir/build.make examples/CMakeFiles/Roadmap.dir/build
 .PHONY : Roadmap/fast
 
-#=============================================================================
-# Target rules for targets named Circle
-
-# Build rule for target.
-Circle: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Circle
-.PHONY : Circle
-
-# fast build rule for target.
-Circle/fast:
-	$(MAKE) -f examples/CMakeFiles/Circle.dir/build.make examples/CMakeFiles/Circle.dir/build
-.PHONY : Circle/fast
-
-#=============================================================================
-# Target rules for targets named Blocks
-
-# Build rule for target.
-Blocks: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Blocks
-.PHONY : Blocks
-
-# fast build rule for target.
-Blocks/fast:
-	$(MAKE) -f examples/CMakeFiles/Blocks.dir/build.make examples/CMakeFiles/Blocks.dir/build
-.PHONY : Blocks/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -650,8 +624,6 @@ help:
 	@echo "... package"
 	@echo "... RVO"
 	@echo "... Roadmap"
-	@echo "... Circle"
-	@echo "... Blocks"
 .PHONY : help
 
 

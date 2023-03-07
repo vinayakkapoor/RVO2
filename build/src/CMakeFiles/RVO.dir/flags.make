@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall -Wformat-security -Werror=format-security -Wno-unused -O3 -DN
 
 CXX_DEFINES = -DRVO_EXPORTS
 
-CXX_INCLUDES = -I/home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/build/src -I/home/vinayak/workspace/src/mrs_swarm_core/ros_packages/ddrl_planner/ddrl_planner_nn/RVO2/src 
+CXX_INCLUDES = -I/home/vinayak/draca/RVO2/build/src -I/home/vinayak/draca/RVO2/src 
 

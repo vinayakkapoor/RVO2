@@ -94,7 +94,7 @@ void setupScenario(RVO::RVOSimulator *sim)
 
 	using namespace std;
 	ofstream trajFile;
-	trajFile.open("./Generated Trajectories/trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
+	trajFile.open("./dataset/trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
 
 	/* Specify the global time step of the simulation. */
 	sim->setTimeStep(0.25f);
@@ -151,7 +151,7 @@ void updateVisualization(RVO::RVOSimulator *sim)
 	//srand(static_cast<unsigned int>(std::time(nullptr)));
 	
 	ofstream trajFile;	
-	trajFile.open("./trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
+	trajFile.open("./dataset/trajectoryData_v"+std::to_string((fileNo))+".txt", std::ios_base::app);
 
 	/* Output the current global time. */
 	//std::cout << sim->getGlobalTime();
