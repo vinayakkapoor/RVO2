@@ -64,7 +64,7 @@ jobs:
             /var/lib/pacman/sync/*
         shell: bash
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build test package
         run: bazel test ...
         shell: bash
@@ -74,7 +74,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup
         run: |
           brew update
@@ -111,7 +111,7 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         shell: bash
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build test package
         run: bazel test ...
         shell: bash
@@ -134,7 +134,7 @@ jobs:
             pkgconf
         shell: sh
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build test package
         run: |
           mkdir _build
@@ -179,7 +179,7 @@ jobs:
             /var/lib/pacman/sync/*
         shell: bash
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build test package
         run: |
           mkdir _build
@@ -228,7 +228,7 @@ jobs:
           rm -rf /var/cache/yum
         shell: bash
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build test package
         run: |
           mkdir _build
@@ -275,7 +275,7 @@ jobs:
           rm -rf /var/cache/yum
         shell: bash
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build test package
         run: |
           mkdir _build
@@ -304,7 +304,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup
         run: |
           brew update
@@ -358,7 +358,7 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         shell: bash
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build test package
         run: |
           mkdir _build
@@ -387,7 +387,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: setup
         run: |
           cup cmake.install -r -y --install-arguments=ADD_CMAKE_TO_PATH=System `
